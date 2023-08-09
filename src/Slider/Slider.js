@@ -38,7 +38,6 @@ export default function Slider(){
             setOffset(0)
         }
         resizeHandler()
-        console.log(sliderImages.length);
         window.addEventListener('resize', resizeHandler)
     },[])
 
@@ -46,8 +45,7 @@ export default function Slider(){
         setOffset((currentOffset) => {
             const newOffset = currentOffset - width;
             const maxWidth = -(width * sliderImages.length);
-            console.log(newOffset)
-            if(newOffset == maxWidth){
+            if(newOffset <= maxWidth){
                 return 0;
             } else{
                 return Math.max(newOffset);
@@ -58,11 +56,8 @@ export default function Slider(){
     const handleLeftClick = () => {
         setOffset((currentOffset) => {
             const newOffset = currentOffset + width;
-            const minWidth = 0;
-            console.log(newOffset)
             if(newOffset <= 0){
                 return Math.min(newOffset);
-                
             } else{
                 return Math.min(-(width * (sliderImages.length-1)))
             }
@@ -72,6 +67,7 @@ export default function Slider(){
     
     return(
         <div className="slider-content">
+            {console.log(1)}
             <div className="slider" ref={sliderRef}>
                 <div className="slider-line" ref={sliderLineRef} style={{width: width * sliderImages.length + 'px', transform:`translateX(${offset}px)`}}>
                     
