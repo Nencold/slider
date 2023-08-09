@@ -1,0 +1,23 @@
+.slider-content{
+    padding: 20px;
+}
+.slider{
+border: 2px solid black;
+max-width: 70%;
+margin: 0px auto;
+overflow: hidden;
+}
+.slider-line{
+    display: flex;
+    background: yellowgreen;
+    transition: all ease 1s;
+}
+.slider-line img{
+
+}
+.slider-left{
+
+}
+.slider-right{
+
+}
